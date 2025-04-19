@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -30,22 +32,22 @@ import com.example.e_commerce_app_using_jetpackcompose.R
 
 @Composable
 fun AuthScreen(modifier: Modifier = Modifier, navController: NavHostController){
+    var scrollState = rememberScrollState()
     Column(
         modifier = modifier.fillMaxSize()
-            .padding(32.dp),
-        verticalArrangement = Arrangement.Center,
+            .padding(25.dp)
+            .verticalScroll(scrollState),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Image(painter = painterResource(id = R.drawable.banner),
+        Image(painter = painterResource(id = R.drawable.img_1),
             contentDescription ="banner",
             modifier = modifier
                 .fillMaxWidth()
-                .height(300.dp)
-                .clip(RoundedCornerShape(16.dp)) // border radius
-                .border(2.dp, Color.Gray, RoundedCornerShape(16.dp)) // optional border
-
+                .height(400.dp)
+//                .clip(RoundedCornerShape(16.dp)) // border radius
         )
-        Spacer(modifier = Modifier.height(20.dp))
+//        Spacer(modifier = Modifier.height(2.dp))
 
         Text(
             text="Start Your Shopping Journey",
@@ -61,7 +63,8 @@ fun AuthScreen(modifier: Modifier = Modifier, navController: NavHostController){
         Text(
             text="Best ecom app with Best price",
             style = TextStyle(
-                color = Color.Blue,
+                color = Color.Gray,
+                fontSize = 12.sp,
                 textAlign = TextAlign.Center
 
             )
