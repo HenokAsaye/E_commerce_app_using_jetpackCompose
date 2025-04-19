@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.e_commerce_app_using_jetpackcompose.ui.theme.AppNavigation
 import com.example.e_commerce_app_using_jetpackcompose.ui.theme.Ecommerce_app_using_jetpackComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Ecommerce_app_using_jetpackComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    AppNavigation(Modifier.padding(innerPadding))
                 }
             }
         }
