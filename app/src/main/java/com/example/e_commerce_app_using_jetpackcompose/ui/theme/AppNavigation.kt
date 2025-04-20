@@ -27,7 +27,7 @@ fun AppNavigation(modifier : Modifier = Modifier){
 
 
         composable("login"){
-            LoginScreen(modifier)
+            LoginScreen(modifier,navController)
         }
         composable("home"){
             HomeScreen(modifier)
