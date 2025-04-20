@@ -42,13 +42,11 @@ fun Header(modifier: Modifier = Modifier){
                 name = it.result.get("name").toString().split(" ").get(0)
             }
     }
-
-
-
     Row(
         modifier= Modifier.
             fillMaxWidth()
-            .padding(40.dp),
+            .padding(top = 45.dp,
+                start =20.dp,end = 20.dp ),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ){
