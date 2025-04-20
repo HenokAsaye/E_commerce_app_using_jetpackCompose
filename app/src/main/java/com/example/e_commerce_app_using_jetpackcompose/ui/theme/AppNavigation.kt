@@ -9,14 +9,17 @@ import com.example.e_commerce_app_using_jetpackcompose.Screen.AuthScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.HomeScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.LoginScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.SignUpScreen
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 @Composable
 
 fun AppNavigation(modifier : Modifier = Modifier){
     val navController = rememberNavController()
+    val isLoggedin = Firebase.auth.currentUser != null
+    val firstPage = if(isLoggedin) "home" else "auth"
 
-
-    NavHost(navController = navController , startDestination = "auth"){
+    NavHost(navController = navController , startDestination = firstPage){
         composable("auth"){
             AuthScreen(modifier,navController)
         }
@@ -30,7 +33,7 @@ fun AppNavigation(modifier : Modifier = Modifier){
             LoginScreen(modifier,navController)
         }
         composable("home"){
-            HomeScreen(modifier)
+            HomeScreen(modifier,navController)
         }
     }
 
