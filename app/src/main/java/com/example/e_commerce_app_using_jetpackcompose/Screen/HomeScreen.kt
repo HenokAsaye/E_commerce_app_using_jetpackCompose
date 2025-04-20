@@ -27,6 +27,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.e_commerce_app_using_jetpackcompose.Pages.CartPage
+import com.example.e_commerce_app_using_jetpackcompose.Pages.FavouritePage
+import com.example.e_commerce_app_using_jetpackcompose.Pages.Homepage
+import com.example.e_commerce_app_using_jetpackcompose.Pages.Profilepage
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
@@ -64,15 +68,20 @@ fun HomeScreen(modifier:Modifier = Modifier,navController: NavController){
        }
 
    ){
-       ContentScreen(modifier = modifier.padding(it))
+       ContentScreen(modifier = modifier.padding(it),selectedIndex)
    }
 }
 
 
 
 @Composable
-fun ContentScreen(modifier: Modifier = Modifier){
-
+fun ContentScreen(modifier: Modifier = Modifier,selectedIndex:Int){
+    when(selectedIndex){
+        0 -> Homepage(modifier)
+        1 -> FavouritePage(modifier)
+        2 -> CartPage(modifier)
+        3 -> Profilepage(modifier)
+    }
 }
 
 data class NavItem(
