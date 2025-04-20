@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.e_commerce_app_using_jetpackcompose.Screen.AuthScreen
+import com.example.e_commerce_app_using_jetpackcompose.Screen.HomeScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.LoginScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.SignUpScreen
 
@@ -21,12 +22,15 @@ fun AppNavigation(modifier : Modifier = Modifier){
         }
 
         composable("signup"){
-            SignUpScreen(modifier)
+            SignUpScreen(modifier,navController)
         }
 
 
         composable("login"){
             LoginScreen(modifier)
+        }
+        composable("home"){
+            HomeScreen(modifier)
         }
     }
 
