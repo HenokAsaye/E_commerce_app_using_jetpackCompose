@@ -1,5 +1,6 @@
 package com.example.e_commerce_app_using_jetpackcompose.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,14 +29,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.e_commerce_app_using_jetpackcompose.model.ProductModel
+import com.example.e_commerce_app_using_jetpackcompose.ui.theme.GlobalNavigation
 
 @Composable
-
-
 fun ProductView(modifier: Modifier = Modifier, product:ProductModel){
     Card(
         modifier = modifier
-            .padding(8.dp),
+            .padding(8.dp)
+            .clickable {
+                GlobalNavigation.navController.navigate("product-details"+product.id)
+            },
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(8.dp)
