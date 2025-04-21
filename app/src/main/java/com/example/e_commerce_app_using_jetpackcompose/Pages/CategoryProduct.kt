@@ -8,6 +8,6 @@ import androidx.navigation.NavHostController
 @Composable
 
 
-fun CategoryProduct(modifier: Modifier = Modifier, navController: NavHostController){
-    Text(text = "Product List")
+fun CategoryProduct(modifier: Modifier = Modifier, navController: NavHostController,categoryId:String){
+    Text(text = "Product List :::  " + categoryId)
 }
