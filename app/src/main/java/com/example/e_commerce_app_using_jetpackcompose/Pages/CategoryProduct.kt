@@ -1,5 +1,6 @@
 package com.example.e_commerce_app_using_jetpackcompose.Pages
 
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -14,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.e_commerce_app_using_jetpackcompose.components.ProductView
 import com.example.e_commerce_app_using_jetpackcompose.model.CategoryModel
 import com.example.e_commerce_app_using_jetpackcompose.model.ProductModel
 import com.google.firebase.Firebase
@@ -36,7 +38,7 @@ fun CategoryProduct(modifier: Modifier = Modifier, navController: NavHostControl
                             doc ->
                         doc.toObject(ProductModel::class.java)
                     }
-                    productList.value = resultList
+                    productList.value = resultList.plus(resultList).plus(resultList)
                 }
             }
     }
@@ -45,9 +47,15 @@ fun CategoryProduct(modifier: Modifier = Modifier, navController: NavHostControl
         modifier = modifier.fillMaxSize()
             .padding(16.dp)
     ){
-        items(productList.value){item ->
-            Text(text = item.title + "-->" + item.actualprice)
-            Spacer(modifier = Modifier.height(50.dp))
+        items(productList.value.chunked(2)){rowItems ->
+            Row{
+                rowItems.forEach{
+                    ProductView(product = it, modifier = Modifier.weight(1f))
+                }
+                if(rowItems.size == 1){
+                    Spacer(modifier = Modifier.weight(1f))
+                }
+            }
         }
     }
 }
