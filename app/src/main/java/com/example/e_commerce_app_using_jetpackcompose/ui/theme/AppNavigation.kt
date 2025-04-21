@@ -39,7 +39,8 @@ fun AppNavigation(modifier : Modifier = Modifier){
             HomeScreen(modifier,navController)
         }
         composable("productDetail/{categoryId}"){
-            CategoryProduct(modifier,navController)
+            val categoryId = it.arguments?.getString("categoryId")
+            CategoryProduct(modifier,navController,categoryId?:"")
         }
     }
 
