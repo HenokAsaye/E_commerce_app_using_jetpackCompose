@@ -42,6 +42,10 @@ fun AppNavigation(modifier : Modifier = Modifier){
             val categoryId = it.arguments?.getString("categoryId")
             CategoryProduct(modifier,navController,categoryId?:"")
         }
+        composable("product-details/{productId}"){
+            val productId = it.arguments?.getString("productId")
+            CategoryProduct(modifier,navController,productId?:"")
+        }
     }
 
 }
