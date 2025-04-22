@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.e_commerce_app_using_jetpackcompose.Pages.CategoryProduct
+import com.example.e_commerce_app_using_jetpackcompose.Pages.ProductDetailPage
 import com.example.e_commerce_app_using_jetpackcompose.Screen.AuthScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.HomeScreen
 import com.example.e_commerce_app_using_jetpackcompose.Screen.LoginScreen
@@ -44,7 +45,7 @@ fun AppNavigation(modifier : Modifier = Modifier){
         }
         composable("product-details/{productId}"){
             val productId = it.arguments?.getString("productId")
-            CategoryProduct(modifier,navController,productId?:"")
+            ProductDetailPage(modifier,productId?:"")
         }
     }
 
